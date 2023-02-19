@@ -72,11 +72,19 @@ class IndexControllerTest implements ControllersTest {
     @Test
     void testAssumptionTrue() {
         assumeTrue("GURU".equalsIgnoreCase("guru"));
+        assertTrue(true);
     }
 
     @Test
     void testAssumptionTrueFails() {
-        assumeTrue("GURU".equalsIgnoreCase(System.getenv("guru")));
+        assumeTrue("GURU".equalsIgnoreCase("NOOB"));
+        assertTrue(true);
+    }
+
+    @Test
+    void testEnvAssumptionTrue() {
+        assumeTrue("index".equalsIgnoreCase(System.getenv("API_NAME")));
+        assertTrue(true);
     }
 
     @EnabledOnOs(OS.MAC)
